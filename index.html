@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión Especial · Día del Payaso Humanitario · Concejo Municipal de Chacao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#150826;
+  --purple-deep:#2A0E4F;
+  --purple:#5B21B6;
+  --purple-vivid:#7C3AED;
+  --fuchsia:#D946EF;
+  --fuchsia-bright:#E879F9;
+  --fuchsia-pale:#F5D0FE;
+  --lavender:#F3E8FF;
+  --cream:#FBF9FE;
+  --white:#FFFFFF;
+  --nose:#F43F5E;
+  --line:rgba(91,33,182,.14);
+  --shadow-lg:0 30px 80px -20px rgba(42,14,79,.25);
+  --shadow-md:0 16px 40px -12px rgba(42,14,79,.18);
+  --radius:22px;
+  --ease:cubic-bezier(.22,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--fuchsia);color:var(--white)}
+
+.progress{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--purple),var(--fuchsia));z-index:1000;transition:width .1s linear}
+.grid-lines{position:fixed;inset:0;pointer-events:none;z-index:0;max-width:1360px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;opacity:.35}
+.grid-lines span{width:1px;background:linear-gradient(180deg,transparent,rgba(91,33,182,.05),transparent)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+.side-nav{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:13px}
+.side-nav a{width:11px;height:11px;border-radius:50%;border:2px solid var(--purple);background:transparent;transition:all .3s var(--ease);position:relative}
+.side-nav a:hover{background:var(--fuchsia);border-color:var(--fuchsia);transform:scale(1.3)}
+.side-nav a::after{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none}
+.side-nav a:hover::after{opacity:1}
+@media(max-width:960px){.side-nav{display:none}}
+
+/* ══════════ SISTEMA DE IMÁGENES CORREGIDO ══════════ */
+.img-error-msg{color:#fca5a5;font-size:11px;text-align:center;line-height:1.7;padding:12px;font-family:'Space Mono',monospace}
+.img-error-msg b{color:#fff;font-size:10px;display:block;margin:5px 0;word-break:break-all}
+.img-error-msg span{opacity:.65;font-size:9px;display:block}
+.img-error-state{background:rgba(244,63,94,.09)!important;border-color:rgba(244,63,94,.45)!important}
+
+/* ══════════ PORTADA ══════════ */
+.cover{min-height:100vh;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 15% 20%,rgba(217,70,239,.22),transparent 60%),
+  radial-gradient(ellipse 70% 70% at 85% 80%,rgba(124,58,237,.3),transparent 60%),
+  linear-gradient(160deg,#1B0930 0%,var(--purple-deep) 45%,#3B1470 100%);
+  display:flex;flex-direction:column;color:var(--white);padding:34px clamp(24px,5vw,70px) 44px;z-index:1}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
+.orb-1{width:420px;height:420px;background:var(--fuchsia);top:-120px;right:-80px;opacity:.3}
+.orb-2{width:320px;height:320px;background:var(--purple-vivid);bottom:-80px;left:-60px;opacity:.35}
+
+.cover-top{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:22px;position:relative;z-index:2}
+.logo-slot{width:96px;height:96px;border-radius:18px;flex-shrink:0;border:1.5px dashed rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Space Mono',monospace;font-size:9px;line-height:1.5;color:rgba(255,255,255,.65);background:rgba(255,255,255,.04);backdrop-filter:blur(6px);transition:all .3s;overflow:hidden}
+.logo-slot:hover{border-color:var(--fuchsia-bright);background:rgba(255,255,255,.09)}
+.logo-slot img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+.cover-top-meta{flex:1;text-align:center}
+.cover-top-meta .doc-ref{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--fuchsia-bright)}
+.cover-top-meta .doc-line{font-size:11px;color:rgba(255,255,255,.6);margin-top:4px}
+
+.cover-main{flex:1;display:flex;align-items:center;gap:clamp(30px,5vw,80px);position:relative;z-index:2;padding:40px 0;flex-wrap:wrap}
+.cover-text{flex:1;min-width:300px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--fuchsia-bright);margin-bottom:26px}
+.kicker::before{content:'';width:34px;height:1px;background:var(--fuchsia)}
+.cover-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,6vw,78px);line-height:.98;letter-spacing:-1.5px}
+.cover-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--fuchsia-bright);display:block;font-size:.55em;letter-spacing:0;margin-top:14px}
+.nose-dot{display:inline-block;width:.45em;height:.45em;border-radius:50%;background:var(--nose);vertical-align:middle;margin-left:.15em;box-shadow:0 0 24px rgba(244,63,94,.7);animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.cover-sub{margin-top:26px;max-width:540px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300}
+.cover-sub strong{color:var(--white);font-weight:600}
+
+.flyer-frame{width:min(380px,80vw);position:relative;flex-shrink:0}
+.flyer-frame::before{content:'';position:absolute;inset:-14px;border-radius:28px;border:1px solid rgba(255,255,255,.18);pointer-events:none}
+.flyer-slot{aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;border:1.5px dashed rgba(255,255,255,.35);background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:30px;color:rgba(255,255,255,.6);transition:all .3s}
+.flyer-slot:hover{border-color:var(--fuchsia-bright)}
+.flyer-slot .fs-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);font-size:26px}
+.flyer-slot .fs-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.flyer-slot .fs-path{font-family:'Space Mono',monospace;font-size:10px;color:var(--fuchsia-bright)}
+.flyer-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;z-index:2}
+.flyer-tag{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--white);color:var(--purple-deep);border-radius:100px;padding:7px 20px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;box-shadow:var(--shadow-md);z-index:3}
+
+.cover-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;position:relative;z-index:2}
+.date-chip{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:16px 24px}
+.date-chip .dc-icon{font-size:26px}
+.date-chip .dc-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fuchsia-bright)}
+.date-chip .dc-value{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.cover-venue{text-align:right;font-size:12px;color:rgba(255,255,255,.7)}
+.cover-venue strong{display:block;font-family:'Syne',sans-serif;color:var(--white);font-size:15px}
+
+.cover-stats{display:flex;gap:clamp(20px,4vw,60px);margin-top:38px;flex-wrap:wrap}
+.cs-item .cs-num{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,4vw,50px);line-height:1;background:linear-gradient(90deg,var(--fuchsia-bright),var(--fuchsia-pale));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cs-item .cs-label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px}
+
+/* ══════════ ÍNDICE ══════════ */
+.toc{padding:clamp(70px,9vw,130px) clamp(24px,6vw,90px);position:relative;z-index:1;background:var(--cream)}
+.toc-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:56px}
+.section-kicker{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);display:flex;align-items:center;gap:12px}
+.section-kicker::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--nose)}
+.toc-head h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4.5vw,56px);letter-spacing:-1px}
+.toc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-top:1px solid var(--line)}
+.toc-item{display:flex;gap:20px;align-items:baseline;padding:26px 8px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);transition:all .35s var(--ease);position:relative}
+.toc-item:hover{padding-left:20px;background:linear-gradient(90deg,var(--lavender),transparent)}
+.toc-num{font-family:'Space Mono',monospace;font-weight:700;font-size:14px;color:var(--fuchsia);min-width:34px}
+.toc-item h3{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.3px}
+.toc-item p{font-size:12.5px;color:#5c4a78;margin-top:4px;font-weight:300}
+.toc-arrow{margin-left:auto;color:var(--purple);opacity:0;transition:all .35s;transform:translateX(-6px)}
+.toc-item:hover .toc-arrow{opacity:1;transform:none}
+
+/* ══════════ SECCIONES ══════════ */
+.section{padding:clamp(70px,9vw,130px) clamp(24px,6vw,90px);position:relative;z-index:1}
+.section--white{background:var(--white)}
+.section--lavender{background:var(--lavender)}
+.section--dark{background:linear-gradient(150deg,#1B0930,var(--purple-deep) 55%,#3B1470);color:var(--white)}
+.section-head{max-width:820px;margin-bottom:clamp(40px,5vw,70px)}
+.section-head h2{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-1px;font-size:clamp(30px,4.2vw,52px);line-height:1.05;margin-top:18px}
+.section-head h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--fuchsia)}
+.section-lead{margin-top:20px;font-size:16px;color:#4a3a66;max-width:640px;font-weight:300}
+.section--dark .section-lead{color:rgba(255,255,255,.78)}
+.watermark{position:absolute;top:30px;right:20px;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(140px,22vw,300px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(124,58,237,.1);pointer-events:none;user-select:none;z-index:0}
+.section--dark .watermark{-webkit-text-stroke:1.5px rgba(255,255,255,.06)}
+
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:start;position:relative;z-index:1}
+@media(max-width:880px){.split{grid-template-columns:1fr}}
+.prose p{margin-bottom:18px;font-size:15.5px;color:#3d2e58}
+.prose p:first-of-type::first-letter{font-family:'Playfair Display',serif;font-size:64px;float:left;line-height:.85;padding:6px 12px 0 0;color:var(--fuchsia);font-weight:600}
+.prose strong{color:var(--purple-deep);font-weight:600}
+.mv-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:34px;border:1px solid var(--line);border-top:5px solid var(--fuchsia);margin-bottom:22px}
+.mv-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.mv-card p{font-size:13.5px;color:#5c4a78;font-weight:300}
+.space-banner{margin-top:34px;background:linear-gradient(120deg,var(--purple),var(--fuchsia));border-radius:18px;padding:26px 30px;color:var(--white);display:flex;gap:16px;align-items:center}
+.space-banner .sb-icon{font-size:30px}
+.space-banner p{font-size:14px;font-weight:500}
+.space-banner p strong{color:var(--fuchsia-pale)}
+
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;position:relative;z-index:1}
+.pillar{background:var(--white);border-radius:var(--radius);padding:36px 30px;border:1px solid var(--line);border-top:4px solid var(--fuchsia);transition:all .4s var(--ease);position:relative;overflow:hidden}
+.pillar:nth-child(2){border-top-color:var(--purple-vivid)}
+.pillar:nth-child(3){border-top-color:var(--purple)}
+.pillar:nth-child(4){border-top-color:var(--nose)}
+.pillar:hover{transform:translateY(-8px);box-shadow:var(--shadow-md)}
+.pillar .p-icon{font-size:30px;margin-bottom:16px}
+.pillar h4{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;margin-bottom:10px;letter-spacing:-.3px}
+.pillar p{font-size:13.5px;color:#5c4a78;font-weight:300}
+
+.yaso-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,80px);position:relative;z-index:1}
+@media(max-width:880px){.yaso-grid{grid-template-columns:1fr}}
+.bio-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:clamp(30px,4vw,50px);border:1px solid var(--line)}
+.bio-card .bc-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--fuchsia);margin-bottom:20px}
+.bio-card .bc-tag::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--nose)}
+.bio-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:16px;letter-spacing:-.4px}
+.bio-card p{font-size:14.5px;color:#3d2e58;margin-bottom:16px}
+.bio-card p strong{color:var(--purple-deep)}
+.legacy-list{display:flex;flex-direction:column;gap:16px}
+.legacy-item{display:flex;gap:18px;align-items:flex-start;background:var(--white);border-radius:18px;padding:22px 24px;border:1px solid var(--line);transition:all .35s var(--ease)}
+.legacy-item:hover{transform:translateX(8px);border-color:var(--fuchsia-pale);box-shadow:var(--shadow-md)}
+.legacy-icon{width:46px;height:46px;min-width:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:21px;background:linear-gradient(135deg,var(--lavender),var(--fuchsia-pale))}
+.legacy-item h4{font-family:'Syne',sans-serif;font-weight:700;font-size:15.5px;margin-bottom:5px}
+.legacy-item p{font-size:12.5px;color:#5c4a78;font-weight:300}
+.bio-note{margin-top:24px;padding:18px 22px;background:var(--lavender);border-radius:14px;font-size:12px;color:var(--purple);border-left:3px solid var(--fuchsia)}
+
+.quote-block{margin-top:60px;background:linear-gradient(135deg,var(--purple),var(--purple-vivid));border-radius:var(--radius);padding:clamp(36px,5vw,60px);position:relative;overflow:hidden;z-index:1}
+.quote-block::before{content:'“';position:absolute;top:-30px;left:20px;font-family:'Playfair Display',serif;font-size:260px;color:rgba(255,255,255,.12);line-height:1}
+.quote-block blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(19px,2.4vw,27px);line-height:1.55;color:var(--white);position:relative;z-index:1;max-width:820px}
+.quote-block cite{display:block;margin-top:22px;font-family:'Space Mono',monospace;font-style:normal;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--fuchsia-pale)}
+
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;position:relative;z-index:1}
+.value-card{border-radius:var(--radius);padding:40px 32px;position:relative;overflow:hidden;background:var(--white);border:1px solid var(--line);transition:all .4s var(--ease)}
+.value-card::after{content:'';position:absolute;bottom:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,var(--fuchsia-pale),transparent 70%);opacity:0;transition:opacity .4s}
+.value-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.value-card:hover::after{opacity:1}
+.value-card .v-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;background:linear-gradient(135deg,var(--purple),var(--fuchsia));margin-bottom:20px}
+.value-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;margin-bottom:10px}
+.value-card p{font-size:13px;color:#5c4a78;font-weight:300}
+.value-card--featured{background:linear-gradient(150deg,var(--purple-deep),var(--purple));color:var(--white);grid-column:span 2}
+.value-card--featured p{color:rgba(255,255,255,.85)}
+.value-card--featured h4{color:var(--white)}
+@media(max-width:640px){.value-card--featured{grid-column:span 1}}
+
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;position:relative;z-index:1;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+.phase{background:var(--white);padding:44px 34px;position:relative;border-right:1px solid var(--line);transition:all .4s var(--ease)}
+.phase:last-child{border-right:none}
+.phase:hover{background:linear-gradient(160deg,var(--lavender),var(--white))}
+.phase .ph-num{font-family:'Syne',sans-serif;font-weight:800;font-size:52px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--fuchsia)}
+.phase h4{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;margin:18px 0 12px}
+.phase p{font-size:13px;color:#5c4a78;font-weight:300}
+.phase .ph-line{width:40px;height:3px;background:linear-gradient(90deg,var(--purple),var(--fuchsia));border-radius:2px;margin-top:20px}
+
+.agenda{position:relative;z-index:1;max-width:860px}
+.agenda-item{display:grid;grid-template-columns:120px 1fr;gap:26px;align-items:flex-start;padding:26px 0;border-bottom:1px solid var(--line);position:relative}
+.agenda-item::before{content:'';position:absolute;left:133px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--fuchsia-pale),transparent)}
+.agenda-time{font-family:'Space Mono',monospace;font-weight:700;font-size:13px;color:var(--fuchsia);padding-top:4px;text-align:right}
+.agenda-body{position:relative;padding-left:26px}
+.agenda-body::before{content:'';position:absolute;left:-6px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--white);border:3px solid var(--fuchsia);box-shadow:0 0 0 4px var(--fuchsia-pale)}
+.agenda-body h4{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin-bottom:6px}
+.agenda-body p{font-size:13.5px;color:#5c4a78;font-weight:300;max-width:600px}
+@media(max-width:640px){.agenda-item{grid-template-columns:1fr;gap:10px}.agenda-time{text-align:left}.agenda-item::before{display:none}}
+
+.gallery{position:relative;z-index:1}
+.gallery-grid{display:grid;gap:20px}
+.gallery-grid--3{grid-template-columns:1.4fr 1fr;grid-template-rows:280px 280px}
+.gallery-grid--3 .g-item:first-child{grid-row:1/3}
+.gallery-grid--2{grid-template-columns:1fr 1fr;grid-template-rows:360px}
+.gallery-grid--1{grid-template-columns:1fr;grid-template-rows:460px;max-width:760px;margin:0 auto}
+.g-item{border-radius:20px;overflow:hidden;position:relative;border:1.5px dashed rgba(255,255,255,.4);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.65);transition:all .35s var(--ease)}
+.g-item:hover{border-color:var(--fuchsia-bright);background:rgba(255,255,255,.09)}
+.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);border-radius:0}
+.g-item:hover img{transform:scale(1.04)}
+.gallery-help{margin-top:30px;padding:20px 26px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);font-family:'Space Mono',monospace;font-size:11px;line-height:2;color:rgba(255,255,255,.75)}
+.gallery-help b{color:var(--fuchsia-bright)}
+@media(max-width:720px){.gallery-grid--3,.gallery-grid--2{grid-template-columns:1fr;grid-template-rows:auto}.gallery-grid--3 .g-item,.gallery-grid--2 .g-item,.gallery-grid--1 .g-item{min-height:260px;grid-row:auto}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;position:relative;z-index:1}
+.stat{text-align:center;padding:44px 26px;border-radius:var(--radius);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);transition:all .4s var(--ease)}
+.stat:hover{transform:translateY(-6px);border-color:var(--fuchsia-bright);background:rgba(255,255,255,.09)}
+.stat .s-num{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(38px,4.5vw,54px);background:linear-gradient(90deg,var(--fuchsia-bright),var(--fuchsia-pale));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat .s-label{margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+
+.methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;position:relative;z-index:1}
+.method{background:var(--white);border-radius:var(--radius);padding:44px 34px;border:1px solid var(--line);text-align:center;position:relative;overflow:hidden;transition:all .4s var(--ease)}
+.method:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.method::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--purple),var(--fuchsia))}
+.method .m-icon{width:74px;height:74px;margin:0 auto 22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;background:linear-gradient(135deg,var(--lavender),var(--fuchsia-pale));box-shadow:0 10px 30px -10px rgba(217,70,239,.4)}
+.method h4{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;margin-bottom:12px;letter-spacing:-.4px}
+.method p{font-size:13.5px;color:#5c4a78;font-weight:300}
+.method .m-tag{display:inline-block;margin-top:18px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--fuchsia);background:var(--lavender);padding:6px 14px;border-radius:100px}
+
+.alliance{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;position:relative;z-index:1}
+.alliance-card{background:var(--white);border-radius:var(--radius);padding:38px 34px;border:1px solid var(--line);position:relative;overflow:hidden;transition:all .4s var(--ease)}
+.alliance-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--purple),var(--fuchsia));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.alliance-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.alliance-card:hover::before{transform:scaleX(1)}
+.alliance-card .a-icon{font-size:30px;margin-bottom:18px}
+.alliance-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;margin-bottom:10px}
+.alliance-card p{font-size:13px;color:#5c4a78;font-weight:300}
+.alliance-card .a-type{display:inline-block;margin-top:18px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--fuchsia);background:var(--lavender);padding:5px 14px;border-radius:100px}
+
+.benefits{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.benefit{padding:30px 28px;border-radius:18px;background:var(--white);border:1px solid var(--line);display:flex;gap:18px;align-items:flex-start;transition:all .35s var(--ease)}
+.benefit:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--fuchsia-pale)}
+.benefit .b-dot{width:14px;height:14px;min-width:14px;border-radius:50%;margin-top:5px;background:var(--nose);box-shadow:0 0 0 5px var(--fuchsia-pale)}
+.benefit:nth-child(2n) .b-dot{background:var(--fuchsia);box-shadow:0 0 0 5px var(--lavender)}
+.benefit:nth-child(3n) .b-dot{background:var(--purple-vivid);box-shadow:0 0 0 5px var(--lavender)}
+.benefit h4{font-family:'Syne',sans-serif;font-weight:700;font-size:15.5px;margin-bottom:6px}
+.benefit p{font-size:12.5px;color:#5c4a78;font-weight:300}
+.benefit--featured{background:linear-gradient(140deg,var(--purple-deep),var(--purple));border:none;color:var(--white)}
+.benefit--featured h4{color:var(--white)}
+.benefit--featured p{color:rgba(255,255,255,.85)}
+
+.protocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;position:relative;z-index:1}
+.proto-card{background:var(--white);border-radius:18px;padding:30px;border:1px solid var(--line);border-left:5px solid var(--fuchsia);transition:all .35s var(--ease)}
+.proto-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.proto-card .pc-num{font-family:'Space Mono',monospace;font-weight:700;color:var(--fuchsia);font-size:13px}
+.proto-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin:10px 0 8px}
+.proto-card p{font-size:13px;color:#5c4a78;font-weight:300}
+.proto-alert{margin-top:30px;background:var(--lavender);border-radius:16px;padding:22px 28px;display:flex;gap:16px;align-items:center;border-left:5px solid var(--nose)}
+.proto-alert .pa-icon{font-size:26px}
+.proto-alert p{font-size:13.5px;color:var(--purple-deep)}
+
+.thanks{max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.thanks .t-nose{width:70px;height:70px;border-radius:50%;margin:0 auto 34px;background:radial-gradient(circle at 35% 35%,#FB7185,var(--nose) 60%);box-shadow:0 12px 40px rgba(244,63,94,.4);animation:pulse 3s infinite}
+.thanks h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-1px}
+.thanks .t-sub{font-family:'Playfair Display',serif;font-style:italic;color:var(--fuchsia);font-size:20px;margin:12px 0 34px}
+.thanks p{font-size:15.5px;color:#3d2e58;margin-bottom:20px;text-align:center}
+.thanks p strong{color:var(--purple-deep)}
+.thanks-sign{margin-top:48px;padding-top:34px;border-top:1px solid var(--line)}
+.thanks-sign .ts-name{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--purple-deep)}
+.thanks-sign .ts-role{font-size:13px;color:#5c4a78;margin-top:4px}
+.thanks-sign .ts-org{margin-top:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--fuchsia)}
+
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;position:relative;z-index:1;max-width:900px;margin:0 auto}
+.contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:28px;text-align:center;backdrop-filter:blur(6px);transition:all .35s var(--ease)}
+.contact-card:hover{border-color:var(--fuchsia-bright);transform:translateY(-5px)}
+.contact-card .cc-icon{font-size:28px;margin-bottom:12px}
+.contact-card .cc-label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--fuchsia-bright);margin-bottom:8px}
+.contact-card .cc-value{font-size:14px;font-weight:600;color:var(--white);word-break:break-word}
+
+.back-cover{background:linear-gradient(160deg,#1B0930,var(--purple-deep));color:var(--white);padding:clamp(70px,9vw,120px) clamp(24px,6vw,90px);text-align:center;position:relative;overflow:hidden;z-index:1}
+.back-cover h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(26px,4vw,44px);letter-spacing:-1px;max-width:760px;margin:0 auto;position:relative;z-index:1}
+.back-cover h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--fuchsia-bright)}
+.back-cover .bc-phrase{margin-top:26px;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.85);position:relative;z-index:1}
+.back-cover .bc-logos{display:flex;justify-content:center;gap:26px;margin-top:56px;position:relative;z-index:1;flex-wrap:wrap}
+.back-cover .logo-slot{border-color:rgba(255,255,255,.3)}
+.back-cover .bc-org{margin-top:44px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fuchsia-bright);position:relative;z-index:1;line-height:2}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<nav class="side-nav" aria-label="Índice del dossier">
+  <a href="#portada" data-label="Portada"></a>
+  <a href="#resumen" data-label="Resumen"></a>
+  <a href="#yaso" data-label="Dr. Yaso"></a>
+  <a href="#valores" data-label="Valores"></a>
+  <a href="#agenda" data-label="Programa"></a>
+  <a href="#galeria" data-label="Galería"></a>
+  <a href="#beneficios" data-label="Beneficios"></a>
+  <a href="#agradecimiento" data-label="Cierre"></a>
+</nav>
+
+<!-- ═══════════════════ PORTADA ═══════════════════ -->
+<section class="cover" id="portada">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="cover-top">
+    <!-- ✅ LOGO 1 · Carga automática de extensión -->
+    <div class="logo-slot">
+      <img data-base="assets/logo-1" alt="Comisión de Participación Ciudadana">
+    </div>
+    <div class="cover-top-meta">
+      <div class="doc-ref">Dossier Institucional · Sesión Especial · CPC-2026</div>
+      <div class="doc-line">Concejo Municipal de Chacao · Comisión Permanente de Participación Ciudadana</div>
+    </div>
+    <!-- ✅ LOGO 2 · Carga automática de extensión -->
+    <div class="logo-slot">
+      <img data-base="assets/logo-2" alt="Despacho de la Concejal">
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-text">
+      <div class="kicker">Conmemoración Oficial</div>
+      <h1 class="cover-title">
+        Sesión Especial<span class="nose-dot"></span>
+        <em>con motivo de celebración del Día del Payaso Humanitario</em>
+      </h1>
+      <p class="cover-sub">
+        Un espacio de esparcimiento, convivencia y cultura cívica que promueve el arte del
+        <strong>clown humanitario</strong> como herramienta de cohesión social y bienestar colectivo.
+        <strong>Un punto de encuentro para aliados, autoridades y comunidad.</strong>
+      </p>
+      <div class="cover-stats">
+        <div class="cs-item"><div class="cs-num">60</div><div class="cs-label">Aforo</div></div>
+        <div class="cs-item"><div class="cs-num">1</div><div class="cs-label">Sesión Especial</div></div>
+        <div class="cs-item"><div class="cs-num">∞</div><div class="cs-label">Espacio de Networking</div></div>
+      </div>
+    </div>
+
+    <!-- ✅ FLYER · Opcional: muestra placeholder si aún no lo tienes -->
+    <div class="flyer-frame">
+      <div class="flyer-slot">
+        <div class="fs-icon">🎪</div>
+        <div class="fs-label">Flyer Oficial</div>
+        <div class="fs-path">assets / flyer.[ext]</div>
+        <div style="font-size:10px;opacity:.7">Se mostrará aquí automáticamente</div>
+        <img data-base="assets/flyer" data-optional alt="Flyer oficial del evento">
+      </div>
+      <div class="flyer-tag">✦ Sesión Especial ✦</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="date-chip">
+      <div class="dc-icon">📅</div>
+      <div>
+        <div class="dc-label">Fecha de la Sesión</div>
+        <div class="dc-value">05 de Noviembre de 2026</div>
+      </div>
+    </div>
+    <div class="cover-venue">
+      <strong>Edificio Atrium · Piso 2 · Sala de Sesiones Ligia Gerbasi</strong>
+      Chacao, Estado Miranda · República Bolivariana de Venezuela
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ÍNDICE ═══════════════════ -->
+<section class="toc" id="indice">
+  <div class="toc-head reveal">
+    <div>
+      <div class="section-kicker">Contenido del Dossier</div>
+      <h2>Índice Editorial</h2>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;color:#8a7aa5">Sesión Especial · 12 apartados</div>
+  </div>
+  <div class="toc-list">
+    <a class="toc-item reveal" href="#resumen"><span class="toc-num">01</span><div><h3>Resumen Ejecutivo</h3><p>Definición, justificación y la sesión como espacio de networking.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#yaso"><span class="toc-num">02</span><div><h3>Doctor Yaso y el Movimiento Internacional</h3><p>Del clown humanitario global al referente local.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#valores"><span class="toc-num">03</span><div><h3>Valores y Principios</h3><p>Reconocimiento a la labor humanitaria y exaltación del clown.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#estructura"><span class="toc-num">04</span><div><h3>Estructura General</h3><p>Las fases que componen la conmemoración.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#agenda"><span class="toc-num">05</span><div><h3>Programa de la Sesión</h3><p>Agenda detallada de la jornada.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#galeria"><span class="toc-num">06</span><div><h3>Galería Visual</h3><p>Registro fotográfico adaptable.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#impacto"><span class="toc-num">07</span><div><h3>Alcance e Impacto</h3><p>Aforo y proyección social.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#participacion"><span class="toc-num">08</span><div><h3>Métodos de Participación</h3><p>Stands · Donativos · Patrocinios.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#alianza"><span class="toc-num">09</span><div><h3>Propuesta de Alianza</h3><p>Modalidades de contribución estratégica.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#beneficios"><span class="toc-num">10</span><div><h3>Beneficios de Marca</h3><p>Mención especial, reconocimiento y trámites municipales.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#protocolo"><span class="toc-num">11</span><div><h3>Protocolo y Logística</h3><p>Un evento seguro y coordinado.</p></div><span class="toc-arrow">→</span></a>
+    <a class="toc-item reveal" href="#agradecimiento"><span class="toc-num">12</span><div><h3>Palabras de la Comisión</h3><p>Agradecimiento institucional y contacto.</p></div><span class="toc-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ═══════════════════ 01 · RESUMEN EJECUTIVO ═══════════════════ -->
+<section class="section section--white" id="resumen">
+  <div class="watermark">01</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">01 · Resumen Ejecutivo</div>
+    <h2>Una sesión especial que celebra <em>la risa como derecho</em></h2>
+  </div>
+  <div class="split">
+    <div class="prose reveal d1">
+      <p>La <strong>Comisión Permanente de Participación Ciudadana del Concejo Municipal de Chacao</strong> presenta el presente Dossier de Alianzas Institucionales para la <strong>Sesión Especial con motivo de celebración del Día del Payaso Humanitario</strong>, un acto solemne y festivo que se desarrollará el <strong>05 de noviembre de 2026</strong> en la Sala de Sesiones Ligia Gerbasi del Edificio Atrium.</p>
+      <p><strong>Definición de la actividad.</strong> Esta Sesión Especial es un espacio institucional de esparcimiento, convivencia y cultura cívica que honra la labor de los payasos humanitarios —artistas y voluntarios que llevan alegría a hospitales, refugios y comunidades vulnerables— y reconoce el humor como una herramienta legítima de sanación, cohesión social y bienestar colectivo.</p>
+      <p><strong>Justificación.</strong> El Día del Payaso Humanitario nos recuerda que la risa también es un acto de solidaridad. En todo el mundo, los clowns solidarios devuelven esperanza allí donde más se necesita. Desde Chacao, asumimos el compromiso de visibilizar esa labor, fortalecer el tejido comunitario y promover valores de fraternidad, empatía y participación ciudadana activa.</p>
+      <p>Más que un acto protocolar, esta Sesión Especial está concebida como un <strong>espacio estratégico de encuentro</strong>: un punto de convergencia donde aliados del sector público y privado, autoridades municipales y la comunidad en general pueden conectar, construir redes y proyectar futuras colaboraciones con impacto social.</p>
+    </div>
+    <aside class="reveal d2">
+      <div class="mv-card">
+        <h4>🎯 Misión</h4>
+        <p>Brindar una jornada de alegría, esparcimiento y sana convivencia a los asistentes, valorando el trabajo humanitario de los payasos solidarios mediante actividades didácticas, recreativas y de reconocimiento.</p>
+      </div>
+      <div class="mv-card" style="border-top-color:var(--purple-vivid)">
+        <h4>🌟 Visión</h4>
+        <p>Consolidar un modelo de participación ciudadana activa, fortaleciendo el tejido social y promoviendo valores de solidaridad, fraternidad y sentido del humor como herramientas de bienestar comunitario.</p>
+      </div>
+      <div class="space-banner">
+        <div class="sb-icon">🤝</div>
+        <p><strong>Espacio de networking</strong> para aliados, autoridades y asistentes en general: una oportunidad única de vinculación institucional y comunitaria.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="pillars" style="margin-top:70px">
+    <div class="pillar reveal"><div class="p-icon">🤡</div><h4>Payasada Humanitaria</h4><p>Actos lúdicos y humor con propósito social, a cargo de artistas del clown invitados.</p></div>
+    <div class="pillar reveal d1"><div class="p-icon">🎭</div><h4>Recreación</h4><p>Juegos, dinámicas de integración y momentos de diversión para toda la audiencia.</p></div>
+    <div class="pillar reveal d2"><div class="p-icon">🤝</div><h4>Convivencia</h4><p>Encuentro ciudadano, participación activa y fortalecimiento del tejido comunitario.</p></div>
+    <div class="pillar reveal d3"><div class="p-icon">🏅</div><h4>Reconocimientos</h4><p>Homenaje público a la labor de los payasos humanitarios y colaboradores solidarios.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 02 · DOCTOR YASO ═══════════════════ -->
+<section class="section section--lavender" id="yaso">
+  <div class="watermark">02</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">02 · Semblanza Internacional</div>
+    <h2>Doctor Yaso y el movimiento <em>global de la risa</em></h2>
+  </div>
+  <div class="yaso-grid">
+    <div class="bio-card reveal d1">
+      <span class="bc-tag">Un legado con raíces universales</span>
+      <h3>Del clown humanitario internacional al corazón de Chacao</h3>
+      <p>El movimiento de <strong>payasos humanitarios</strong> tiene profundas raíces internacionales. Su referente pionero es el médico estadounidense <strong>Dr. Hunter "Patch" Adams</strong>, quien desde la década de 1970 defendió el humor y la empatía como pilares de la atención sanitaria, fundando el instituto Gesundheit! y llevando la risa a hospitales y zonas vulnerables alrededor del mundo.</p>
+      <p>A partir de los años 80, la figura del <strong>"payaso de hospital"</strong> o <em>clown doctor</em> se profesionalizó globalmente: desde las unidades de clown del Big Apple Circus en Nueva York hasta redes internacionales presentes en Europa, América Latina, África y Asia, que aplican la risoterapia como complemento del cuidado emocional de niños, pacientes y adultos mayores.</p>
+      <p>La evidencia en torno a la <strong>terapia de la risa</strong> respalda su impacto: favorece la liberación de endorfinas, reduce el estrés y la ansiedad, y mejora el estado anímico de quienes enfrentan procesos de enfermedad o vulnerabilidad.</p>
+      <p>Es en esta tradición universal donde se inscribe la figura del <strong>Doctor Yaso</strong>, representante entrañable del payaso humanitario en Venezuela: una naríz roja que, con ternura y presencia genuina, transformó pasillos de hospitales, salas pediátricas y comunidades en espacios de esperanza, demostrando que <strong>el acto más revolucionario es hacer reír a quien sufre</strong>.</p>
+      <div class="bio-note">✏️ <b>Nota para el equipo:</b> completar con datos biográficos verificados del Doctor Yaso (fechas, testimonios y trayectoria específica) antes de la entrega final.</div>
+    </div>
+    <div class="legacy-list">
+      <div class="legacy-item reveal"><div class="legacy-icon">🌎</div><div><h4>Herencia universal</h4><p>Un movimiento global que va de Patch Adams a las redes internacionales de payasos de hospital.</p></div></div>
+      <div class="legacy-item reveal d1"><div class="legacy-icon">❤️</div><div><h4>Sanación a través de la risa</h4><p>La risoterapia como complemento emocional en contextos de salud y acompañamiento.</p></div></div>
+      <div class="legacy-item reveal d2"><div class="legacy-icon">🤝</div><div><h4>Servicio a los más necesitados</h4><p>Presencia activa en hospitales, refugios, escuelas y comunidades vulnerables.</p></div></div>
+      <div class="legacy-item reveal d3"><div class="legacy-icon">🎓</div><div><h4>Formación y relevo</h4><p>Inspirar nuevas generaciones de voluntarios y artistas comprometidos con la transformación social.</p></div></div>
+      <div class="legacy-item reveal d3"><div class="legacy-icon">🏛️</div><div><h4>Memoria colectiva</h4><p>Preservar este legado como patrimonio emocional y cultural de la comunidad.</p></div></div>
+    </div>
+  </div>
+  <div class="quote-block reveal">
+    <blockquote>Una sociedad que ríe unida es una sociedad que sana unida. El payaso humanitario no viene a borrar el dolor: viene a recordarnos que la vida sigue siendo digna de ser celebrada.</blockquote>
+    <cite>— Espíritu de la conmemoración · Día del Payaso Humanitario</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════ 03 · VALORES ═══════════════════ -->
+<section class="section section--white" id="valores">
+  <div class="watermark">03</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">03 · Valores y Principios Fundamentales</div>
+    <h2>Los fundamentos <em>éticos</em> del proyecto</h2>
+  </div>
+  <div class="values">
+    <div class="value-card value-card--featured reveal">
+      <div class="v-icon">🎖️</div>
+      <h4>Reconocimiento a la Labor Humanitaria</h4>
+      <p>Honrar la dedicación, sensibilidad y entrega de quienes consagran su arte al servicio de los demás, con una orientación clara: <strong style="color:var(--fuchsia-pale)">beneficiar a los más necesitados</strong>. Cada sonrisa llevada a un hospital, un refugio o una comunidad vulnerable es un acto de solidaridad que merece ser visibilizado y celebrado.</p>
+    </div>
+    <div class="value-card reveal d1"><div class="v-icon">🎭</div><h4>Enaltecer el Arte Clown</h4><p>Exaltar la figura del payaso humanitario y el valor cultural del humor como lenguaje universal de bienestar y encuentro.</p></div>
+    <div class="value-card reveal d2"><div class="v-icon">🌱</div><h4>Democratizar la Alegría</h4><p>Facilitar el acceso a experiencias de bienestar emocional en todos los sectores, sin distinción alguna.</p></div>
+    <div class="value-card reveal d3"><div class="v-icon">🤝</div><h4>Cohesión y Convivencia</h4><p>Promover el encuentro ciudadano pacífico y la participación activa como herramientas de tejido social.</p></div>
+    <div class="value-card reveal d3"><div class="v-icon">🔍</div><h4>Transparencia y Cooperación</h4><p>Construir puentes sólidos, auditables y de mutuo beneficio entre el sector público, la empresa privada y las fundaciones.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 04 · ESTRUCTURA ═══════════════════ -->
+<section class="section section--lavender" id="estructura">
+  <div class="watermark">04</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">04 · Estructura General</div>
+    <h2>Una conmemoración en <em>tres actos</em></h2>
+    <p class="section-lead">El proyecto se articula en fases consecutivas que garantizan convocatoria, celebración y reconocimiento, siempre con vocación de encuentro y networking.</p>
+  </div>
+  <div class="phases">
+    <div class="phase reveal"><div class="ph-num">I</div><h4>Convocatoria y Sensibilización</h4><p>Campaña de difusión comunitaria para visibilizar la figura del payaso humanitario y convocar a aliados, autoridades y vecinos a la Sesión Especial.</p><div class="ph-line"></div></div>
+    <div class="phase reveal d1"><div class="ph-num">II</div><h4>Sesión Especial</h4><p>Acto central en la Sala Ligia Gerbasi: palabras de autoridades, payasada humanitaria, recreación y dinámicas de integración para los asistentes.</p><div class="ph-line"></div></div>
+    <div class="phase reveal d2"><div class="ph-num">III</div><h4>Reconocimientos y Networking</h4><p>Homenaje público a colaboradores y espacio de encuentro entre aliados, autoridades y comunidad para proyectar futuras colaboraciones.</p><div class="ph-line"></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 05 · PROGRAMA ═══════════════════ -->
+<section class="section section--white" id="agenda">
+  <div class="watermark">05</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">05 · Programa de la Sesión Especial</div>
+    <h2>Agenda de la <em>jornada</em></h2>
+    <p class="section-lead">Edificio Atrium · Piso 2 · Sala de Sesiones Ligia Gerbasi · Aforo: 60 asistentes.</p>
+  </div>
+  <div class="agenda">
+    <div class="agenda-item reveal"><div class="agenda-time">08:00 – 09:00</div><div class="agenda-body"><h4>Montaje y Logística</h4><p>Instalación del espacio, montaje de sonido, señalización y adecuación de la Sala Ligia Gerbasi para recibir a los asistentes.</p></div></div>
+    <div class="agenda-item reveal"><div class="agenda-time">09:00 – 09:30</div><div class="agenda-body"><h4>Recepción y Registro</h4><p>Bienvenida de los asistentes, entrega de credenciales y ubicación en la sala.</p></div></div>
+    <div class="agenda-item reveal"><div class="agenda-time">09:30 – 10:00</div><div class="agenda-body"><h4>Apertura Institucional</h4><p>Palabras de bienvenida de la Comisión Permanente de Participación Ciudadana y presentación del significado del Día del Payaso Humanitario.</p></div></div>
+    <div class="agenda-item reveal"><div class="agenda-time">10:00 – 11:30</div><div class="agenda-body"><h4>Payasada Humanitaria y Recreación</h4><p>Presentación del payaso invitado, dinámicas de humor, juegos de integración, música y momentos lúdicos para toda la audiencia.</p></div></div>
+    <div class="agenda-item reveal"><div class="agenda-time">11:30 – 12:00</div><div class="agenda-body"><h4>Reconocimientos y Cierre</h4><p>Agradecimientos a colaboradores, entrega de reconocimientos, foto grupal y cierre institucional del acto.</p></div></div>
+    <div class="agenda-item reveal"><div class="agenda-time">12:00 – 12:30</div><div class="agenda-body"><h4>Encuentro y Networking</h4><p>Espacio de vinculación entre aliados, autoridades y asistentes para fortalecer redes de colaboración con impacto social.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 06 · GALERÍA ═══════════════════ -->
+<section class="section section--dark" id="galeria">
+  <div class="watermark">06</div>
+  <div class="orb orb-1"></div>
+  <div class="section-head reveal">
+    <div class="section-kicker" style="color:var(--fuchsia-bright)">06 · Galería Visual</div>
+    <h2>Memoria en <em style="color:var(--fuchsia-bright)">imágenes</em></h2>
+    <p class="section-lead">Un registro de la ternura, la risa y la entrega que definen esta labor humanitaria.</p>
+  </div>
+  <div class="gallery reveal d1">
+    <!-- ✅ GALERÍA · Carga automática de extensión -->
+    <div class="gallery-grid gallery-grid--3">
+      <div class="g-item"><img data-base="assets/foto-1" alt="Payasos humanitarios en acción"></div>
+      <div class="g-item"><img data-base="assets/foto-2" alt="Momento de recreación"></div>
+      <div class="g-item"><img data-base="assets/foto-3" alt="Convivencia ciudadana"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 07 · IMPACTO ═══════════════════ -->
+<section class="section section--dark" id="impacto">
+  <div class="watermark">07</div>
+  <div class="orb orb-2"></div>
+  <div class="section-head reveal">
+    <div class="section-kicker" style="color:var(--fuchsia-bright)">07 · Alcance e Impacto</div>
+    <h2>Metas de <em style="color:var(--fuchsia-bright)">proyección</em> social</h2>
+    <p class="section-lead">Una sesión diseñada para maximizar el encuentro, el reconocimiento y la participación ciudadana.</p>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><div class="s-num">60</div><div class="s-label">Aforo de asistentes</div></div>
+    <div class="stat reveal d1"><div class="s-num">1</div><div class="s-label">Sesión Especial</div></div>
+    <div class="stat reveal d2"><div class="s-num">+20</div><div class="s-label">Reconocimientos entregados</div></div>
+    <div class="stat reveal d3"><div class="s-num">∞</div><div class="s-label">Sonrisas como legado</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 08 · MÉTODOS DE PARTICIPACIÓN ═══════════════════ -->
+<section class="section section--white" id="participacion">
+  <div class="watermark">08</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">08 · Métodos de Participación</div>
+    <h2>Tres formas de <em>sumarse</em></h2>
+    <p class="section-lead">Invitamos a instituciones públicas, privadas, comerciantes y comunidad a participar a través de las siguientes modalidades.</p>
+  </div>
+  <div class="methods">
+    <div class="method reveal"><div class="m-icon">🏪</div><h4>Stands</h4><p>Espacios institucionales y comerciales para aliados durante la jornada, con interacción directa con autoridades y comunidad asistente.</p><span class="m-tag">Presencia en el evento</span></div>
+    <div class="method reveal d1"><div class="m-icon">🎁</div><h4>Donativos</h4><p>Contribuciones financieras o aportes en especie: insumos, materiales, utilería y recursos destinados al desarrollo de la sesión.</p><span class="m-tag">Aportes no monetarios</span></div>
+    <div class="method reveal d2"><div class="m-icon">🤝</div><h4>Patrocinios</h4><p>Alianzas estratégicas con visibilidad de marca, reconocimiento público institucional y beneficios exclusivos para los patrocinadores.</p><span class="m-tag">Alianza estratégica</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 09 · PROPUESTA DE ALIANZA ═══════════════════ -->
+<section class="section section--lavender" id="alianza">
+  <div class="watermark">09</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">09 · Propuesta de Alianza</div>
+    <h2>Modalidades de <em>contribución</em></h2>
+    <p class="section-lead">Buscamos aliados estratégicos en las siguientes modalidades, las cuales pueden ser cubiertas mediante donaciones financieras o aportes en especie (Aportes No Monetarios).</p>
+  </div>
+  <div class="alliance">
+    <div class="alliance-card reveal"><div class="a-icon">🏅</div><h4>Donativos para Reconocimientos</h4><p>Suministro de estatuillas, placas, narices rojas artesanales, utilería e incentivos para los payasos humanitarios y colaboradores homenajeados.</p><span class="a-type">Financiero / Especie</span></div>
+    <div class="alliance-card reveal d1"><div class="a-icon">🎭</div><h4>Producción Artística</h4><p>Apoyo a la presentación del payaso invitado, artistas del clown, técnicos de sonido e iluminación y dinámicas recreativas de la sesión.</p><span class="a-type">Financiero / Especie</span></div>
+    <div class="alliance-card reveal d2"><div class="a-icon">🛠️</div><h4>Montaje y Logística</h4><p>Financiamiento de la adecuación de la Sala Ligia Gerbasi, señalización, credenciales, escenografía y decoración temática.</p><span class="a-type">Financiero / Especie</span></div>
+    <div class="alliance-card reveal d3"><div class="a-icon">🏪</div><h4>Stands Institucionales</h4><p>Habilitación de espacios de stand para aliados durante la jornada, promoviendo la interacción con autoridades y comunidad.</p><span class="a-type">Financiero / Especie</span></div>
+    <div class="alliance-card reveal d2"><div class="a-icon">📢</div><h4>Difusión y Campaña</h4><p>Respaldo a la campaña comunicacional en medios digitales, impresos y comunitarios del municipio.</p><span class="a-type">Financiero / Especie</span></div>
+    <div class="alliance-card reveal d3"><div class="a-icon">🧰</div><h4>Insumos y Recursos</h4><p>Donación de materiales, recursos y suministros necesarios para el desarrollo integral de la Sesión Especial.</p><span class="a-type">Especie</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 10 · BENEFICIOS DE MARCA ═══════════════════ -->
+<section class="section section--white" id="beneficios">
+  <div class="watermark">10</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">10 · Beneficios e Impacto de Marca</div>
+    <h2>Retorno para <em>nuestros aliados</em></h2>
+  </div>
+  <div class="benefits">
+    <div class="benefit benefit--featured reveal"><span class="b-dot"></span><div><h4>Mención Especial</h4><p>Mención especial y destacada de la marca aliada durante los actos públicos de la Sesión Especial y en las palabras de la Comisión.</p></div></div>
+    <div class="benefit benefit--featured reveal d1"><span class="b-dot"></span><div><h4>Reconocimiento Público Institucional</h4><p>Reconocimiento formal y público por parte del Concejo Municipal de Chacao, con entrega de distinción a los aliados estratégicos.</p></div></div>
+    <div class="benefit benefit--featured reveal d2"><span class="b-dot"></span><div><h4>Asistencia con Trámites Municipales</h4><p>Acompañamiento y orientación preferencial en trámites administrativos ante el Concejo Municipal y las instancias correspondientes.</p></div></div>
+    <div class="benefit reveal"><span class="b-dot"></span><div><h4>Presencia en campaña oficial</h4><p>Inclusión del logotipo en toda la campaña digital e impresa del evento.</p></div></div>
+    <div class="benefit reveal d1"><span class="b-dot"></span><div><h4>Visibilidad en el acto</h4><p>Presencia destacada con pendones y backings durante la Sesión Especial, con mención expresa en las notas de prensa institucionales.</p></div></div>
+    <div class="benefit reveal d2"><span class="b-dot"></span><div><h4>Espacio de stand</h4><p>Disposición de un espacio de stand comercial o institucional el día del evento, con interacción directa con los asistentes.</p></div></div>
+    <div class="benefit reveal d3"><span class="b-dot"></span><div><h4>Padrinazgo de reconocimiento</h4><p>Apadrinar una distinción específica (ej. "Premio Empresa X al Payaso Humanitario del Año"), con presencia en la placa y mención durante la entrega.</p></div></div>
+    <div class="benefit reveal d2"><span class="b-dot"></span><div><h4>Contenido en redes sociales</h4><p>Inclusión del logotipo en el bloque de agradecimientos y publicaciones destacadas en las redes oficiales del Concejo Municipal.</p></div></div>
+    <div class="benefit reveal d3"><span class="b-dot"></span><div><h4>Memoria fotográfica</h4><p>Inclusión en la memoria fotográfica oficial del evento y acceso al material audiovisual para la comunicación propia de la marca.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 11 · PROTOCOLO ═══════════════════ -->
+<section class="section section--lavender" id="protocolo">
+  <div class="watermark">11</div>
+  <div class="section-head reveal">
+    <div class="section-kicker">11 · Protocolo de Seguridad y Logística</div>
+    <h2>Un evento <em>seguro</em> para todos</h2>
+  </div>
+  <div class="protocol">
+    <div class="proto-card reveal"><span class="pc-num">/ 01</span><h4>Recepción y Registro</h4><p>Control de acceso de los asistentes con listado previo y credencialización en el ingreso del piso 2.</p></div>
+    <div class="proto-card reveal d1"><span class="pc-num">/ 02</span><h4>Apertura y Actividades</h4><p>Coordinación permanente del personal de logística durante las presentaciones y dinámicas recreativas.</p></div>
+    <div class="proto-card reveal d2"><span class="pc-num">/ 03</span><h4>Supervisión del Espacio</h4><p>Acompañamiento continuo a los asistentes y supervisión del correcto desarrollo de la sesión en la sala.</p></div>
+    <div class="proto-card reveal d3"><span class="pc-num">/ 04</span><h4>Cierre y Desmovilización</h4><p>Desalojo ordenado, limpieza del espacio y entrega de la Sala Ligia Gerbasi en óptimas condiciones.</p></div>
+  </div>
+  <div class="proto-alert reveal">
+    <div class="pa-icon">🩹</div>
+    <p><strong>Seguridad e integridad:</strong> se contará con un punto de primeros auxilios con kit básico y coordinación con el personal de seguridad del Edificio Atrium para el resguardo de la jornada.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 12 · AGRADECIMIENTO ═══════════════════ -->
+<section class="section section--white" id="agradecimiento">
+  <div class="watermark">12</div>
+  <div class="thanks reveal">
+    <div class="t-nose"></div>
+    <h2>Palabras de la Comisión</h2>
+    <div class="t-sub">Un agradecimiento desde el corazón</div>
+    <p>Desde la <strong>Comisión Permanente de Participación Ciudadana</strong>, expresamos nuestro más profundo agradecimiento a todas las personas, instituciones y aliados que hacen posible esta Sesión Especial. Al <strong>Doctor Yaso</strong> —donde quiera que su legado siga haciendo reír— gracias por enseñarnos que la ternura es un acto de valentía y que una nariz roja puede abrir puertas que ningún título logra cruzar.</p>
+    <p>A los payasos humanitarios que continúan esta labor silenciosa en hospitales, refugios y comunidades: ustedes son la prueba viviente de que la alegría es un servicio esencial. A las familias y vecinos que abren sus puertas al humor: gracias por recordarnos que reír juntos es una forma de sanar.</p>
+    <p>Esta Sesión Especial no es solo un homenaje al pasado; es un <strong>compromiso con el futuro</strong> y un espacio abierto para que aliados, autoridades y comunidad construyamos juntos redes de bienestar colectivo.</p>
+    <p><strong>¡Sumemos esfuerzos para regalar una sonrisa inolvidable a nuestra comunidad!</strong></p>
+    <div class="thanks-sign">
+      <div class="ts-name">Yolanda Rivas</div>
+      <div class="ts-role">Presidenta de la Comisión Permanente de Participación Ciudadana</div>
+      <div class="ts-org">Concejo Municipal de Chacao</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTRAPORTADA ═══════════════════ -->
+<footer class="back-cover">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <h2>La risa es el idioma universal que no necesita traducción, y el payaso humanitario es su <em>embajador más noble</em>.</h2>
+  <div class="bc-phrase">Este dossier es una invitación abierta a construir juntos un homenaje digno, emotivo y transformador.</div>
+
+  <div class="contact" style="margin-top:56px">
+    <div class="contact-card"><div class="cc-icon">📍</div><div class="cc-label">Sede</div><div class="cc-value">Edificio Atrium · Piso 2 · Sala de Sesiones Ligia Gerbasi</div></div>
+    <div class="contact-card"><div class="cc-icon">📅</div><div class="cc-label">Fecha</div><div class="cc-value">05 de Noviembre de 2026</div></div>
+    <div class="contact-card"><div class="cc-icon">📞</div><div class="cc-label">Teléfono / WhatsApp</div><div class="cc-value">0412-3740055</div></div>
+    <div class="contact-card"><div class="cc-icon">✉️</div><div class="cc-label">Correo electrónico</div><div class="cc-value">entornoinstitucional.cpcchacao@gmail.com</div></div>
+  </div>
+
+  <!-- ✅ LOGOS CONTRAPORTADA · Carga automática -->
+  <div class="bc-logos">
+    <div class="logo-slot"><img data-base="assets/logo-1" alt="Comisión"></div>
+    <div class="logo-slot"><img data-base="assets/logo-2" alt="Concejal"></div>
+  </div>
+  <div class="bc-org">
+    Comisión Permanente de Participación Ciudadana<br>
+    Concejo Municipal de Chacao<br>
+    Sesión Especial · Día del Payaso Humanitario · 2026
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     🖼️ CARGADOR AUTOMÁTICO DE IMÁGENES
+     Detecta la extensión correcta de cada imagen (.png, .jpg,
+     .jpeg, .webp, .gif) automáticamente. Si una imagen no existe,
+     muestra un aviso indicando qué archivo falta.
+════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  var EXT = ['png','jpg','jpeg','webp','gif','PNG','JPG','JPEG','WEBP','GIF'];
+
+  function cargar(img){
+    var base = img.getAttribute('data-base');
+    if(!base || img.getAttribute('data-procesado')) return;
+    img.setAttribute('data-procesado','true');
+    var i = 0;
+
+    img.onerror = function(){
+      i++;
+      if(i < EXT.length){
+        img.src = base + '.' + EXT[i];
+      } else {
+        img.onerror = null;
+        fallo(img, base);
+      }
+    };
+
+    img.src = base + '.' + EXT[0];
+  }
+
+  function fallo(img, base){
+    // Si es opcional (ej. flyer), mantiene el placeholder elegante
+    if(img.hasAttribute('data-optional')){
+      img.style.display = 'none';
+      return;
+    }
+    var p = img.parentElement;
+    if(p){
+      p.classList.add('img-error-state');
+      p.innerHTML = '<div class="img-error-msg">❌ Imagen no encontrada<b>' + base + '.[ext]</b><span>Colócala en la carpeta assets</span></div>';
+    }
+  }
+
+  function iniciar(){
+    var imgs = document.querySelectorAll('img[data-base]');
+    for(var k=0;k<imgs.length;k++){ cargar(imgs[k]); }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', iniciar);
+  } else { iniciar(); }
+})();
+</script>
+
+<!-- Barra de progreso + animaciones de scroll -->
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+  progress.style.width=pct+'%';
+},{passive:true});
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
